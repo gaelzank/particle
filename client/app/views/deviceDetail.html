@@ -1,0 +1,37 @@
+
+<h1>DETAILS DU DEVICE</h1>
+
+<a href="#!/devices">retour</a>
+<div class="myDevice" id="myDevice">
+  <br>
+  
+  <hr>
+  <span>Identifiant : </span> {{device.id}} <br>
+  <span>Nom : </span> {{device.name}} <br>
+  <hr>
+  <!-- <span>Dernière Applicatn :</span> {{myDevice.last_app}} <br> -->
+  <span>Dernière adresse IP : </span> {{device.last_ip_address}} <br>
+
+  <span>Id produit : </span> {{device.product_id}} <br>
+  <span>Id plateforme : </span> {{device.platform_id}} <br>
+
+  <span>Connecté : </span> {{device.connected}} <br>
+  <span>Cellular : </span> {{device.cellular}} <br>
+  <span>Status : </span> {{device.status}} <br>
+  <span>Notes : </span> {{device.notes}} <br>
+
+  <span>Dernière utilisation :</span> {{device.last_heard}} <br>
+</div>
+<br><br>
+<canvas class="chart chart-line" chart-data="data" chart-labels="labels" 
+  chart-series="series" chart-click="onClick"></canvas>
+<div>
+<ul class="list-group-item">
+      <li ng-repeat='ng-repeat="s in mesSensors"' class="collection-item list-group-item">
+        <p>{{s.name}}</p>
+        <p>{{s.data}}</p>
+        <p>{{s.published_at| date : 'dd-MM-yy HH:mm:ss ' }}</p>
+        <p>{{s.coreid}}</p>
+      </li>
+</ul>
+</div>
