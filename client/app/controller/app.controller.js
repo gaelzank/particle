@@ -1,5 +1,5 @@
 
-angular.module('app').controller('homeCtrl', ['$scope', '$http',
+angular.module('app').controller('ledCtrl', ['$scope', '$http',
     function($scope, $http) {
 
       

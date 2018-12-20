@@ -70,7 +70,7 @@ db.once('open', function() {
 
 app.use('/app', express.static('./client/app'));
 app.use('/css', express.static('./client/lib/css'));
-// app.use('/lib', express.static('./client/lib/vendor'));
+app.use('/lib', express.static('./client/lib/vendor'));
 
 app.use(bodyParser.urlencoded({
     extended: false

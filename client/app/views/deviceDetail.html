@@ -1,37 +1,51 @@
 
 <h1>DETAILS DU DEVICE</h1>
-
 <a href="#!/devices">retour</a>
-<div class="myDevice" id="myDevice">
-  <br>
-  
-  <hr>
-  <span>Identifiant : </span> {{device.id}} <br>
-  <span>Nom : </span> {{device.name}} <br>
-  <hr>
-  <!-- <span>Dernière Applicatn :</span> {{myDevice.last_app}} <br> -->
-  <span>Dernière adresse IP : </span> {{device.last_ip_address}} <br>
-
-  <span>Id produit : </span> {{device.product_id}} <br>
-  <span>Id plateforme : </span> {{device.platform_id}} <br>
-
-  <span>Connecté : </span> {{device.connected}} <br>
-  <span>Cellular : </span> {{device.cellular}} <br>
-  <span>Status : </span> {{device.status}} <br>
-  <span>Notes : </span> {{device.notes}} <br>
-
-  <span>Dernière utilisation :</span> {{device.last_heard}} <br>
+<div class="row">
+  <div class="col-md-6">
+<div class="myDevice bg-success text-white" id="myDevice">
+  <span>Identifiant : </span> {{monDevice.id}} <br>
+  <span>Nom : </span> {{monDevice.name}} <br>
+  <span>Dernière adresse IP : </span> {{monDevice.last_ip_address}} <br>
+  <span>Id produit : </span> {{monDevice.product_id}} <br>
+  <span>Id plateforme : </span> {{monDevice.platform_id}} <br>
+  <span>Connecté : </span> {{monDevice.connected}} <br>
+  <span>Cellular : </span> {{monDevice.cellular}} <br>
+  <span>Status : </span> {{monDevice.status}} <br>
+  <span>Notes : </span> {{monDevice.notes}} <br>
+  <span>Dernière utilisation :</span> {{monDevice.last_heard}} <br>
 </div>
-<br><br>
+  </div>
+  <div class="col-md-6">
+  <div>
+<table class="table is-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">data</th>
+      <th scope="col">published_at</th>
+      <th scope="col">coreid</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="s in mesSensors" class="table-warning">
+      <th scope="row">{{$index}}</th>
+      <td>{{s.name}}</td>
+      <td>{{s.data}}</td>
+      <td>{{s.published_at| date : 'dd-MM-yy HH:mm:ss ' }}</td>
+      <td>{{s.coreid}}</td>
+      
+      
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+  </div>
+<hr>
+<div>
 <canvas class="chart chart-line" chart-data="data" chart-labels="labels" 
   chart-series="series" chart-click="onClick"></canvas>
-<div>
-<ul class="list-group-item">
-      <li ng-repeat='ng-repeat="s in mesSensors"' class="collection-item list-group-item">
-        <p>{{s.name}}</p>
-        <p>{{s.data}}</p>
-        <p>{{s.published_at| date : 'dd-MM-yy HH:mm:ss ' }}</p>
-        <p>{{s.coreid}}</p>
-      </li>
-</ul>
 </div>
